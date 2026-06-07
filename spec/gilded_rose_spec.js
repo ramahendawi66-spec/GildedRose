@@ -76,4 +76,10 @@ it("should drop Backstage pass quality to 0 after concert", function() {
   expect(items[0].quality).toEqual(0);
 });
 
+it("should decrease Conjured item quality by 2 each day", function() {
+  items = [new Item("Conjured Mana Cake", 10, 20)];
+  update_quality();
+  expect(items[0].quality).toEqual(18);
+});
+
 });
