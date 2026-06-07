@@ -7,13 +7,19 @@ describe("Gilded Rose", function() {
   it("should decrease quality by 1 each day for normal item", function() {
       items = [new Item("Normal Item", 10, 20)];
       update_quality();
-      expect(items[0].quality).toEqual(19);
+      expect(items[0].quality).toEqual(19); // -1 
   });
 
   it("should decrease quality twice as fast after sell_in is negative", function() {
     items = [new Item("Normal Item", -1, 20)];
     update_quality();
-    expect(items[0].quality).toEqual(18);
+    expect(items[0].quality).toEqual(18); // verkaufsdatum ist vorbei
+});
+
+it("should never have negative quality", function() {
+  items = [new Item("Normal Item", 10, 0)];
+  update_quality();
+  expect(items[0].quality).toEqual(0); // 0 bleibt 0
 });
 
 });
