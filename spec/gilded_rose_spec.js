@@ -28,5 +28,10 @@ it("should never have quality more than 50", function() {
   expect(items[0].quality).toEqual(50);
 });
 
+it("should increase quality of Aged Brie by 1 each day", function() {
+  items = [new Item("Aged Brie", 10, 20)];
+  update_quality();
+  expect(items[0].quality).toEqual(21); //steigt um 1 
+});
 
 });
