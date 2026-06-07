@@ -10,4 +10,10 @@ describe("Gilded Rose", function() {
       expect(items[0].quality).toEqual(19);
   });
 
+  it("should decrease quality twice as fast after sell_in is negative", function() {
+    items = [new Item("Normal Item", -1, 20)];
+    update_quality();
+    expect(items[0].quality).toEqual(18);
+});
+
 });
