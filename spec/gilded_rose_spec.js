@@ -22,4 +22,11 @@ it("should never have negative quality", function() {
   expect(items[0].quality).toEqual(0); // 0 bleibt 0
 });
 
+it("should never have quality more than 50", function() {
+  items = [new Item("Aged Brie", 10, 50)];
+  update_quality();
+  expect(items[0].quality).toEqual(50);
+});
+
+
 });
